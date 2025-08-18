@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfukwgou1fmj8"]
+
+[ext_resource type="Script" uid="uid://xft02w6txxsh" path="res://scenes/test.gd" id="1_bl13t"]
+[ext_resource type="PackedScene" uid="uid://qewwvkgwylcd" path="res://scenes/ball.tscn" id="1_errlg"]
+[ext_resource type="Texture2D" uid="uid://jt8jjcfkqpon" path="res://icon.svg" id="3_iyx0m"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ij1v8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bl13t"]
+friction = 0.0
+bounce = 1.0
+
+[node name="Test" type="Node2D"]
+script = ExtResource("1_bl13t")
+meh = false
+speed = 303.7
+ball_scene = ExtResource("1_errlg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(523, 639)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_ij1v8")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(530, 604)
+physics_material_override = SubResource("PhysicsMaterial_bl13t")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+position = Vector2(-354, -341)
+polygon = PackedVector2Array(214, 457, 319, 237, 456, 441)
+
+[node name="Node2D" type="Marker2D" parent="."]
+position = Vector2(200, 200)
+gizmo_extents = 210.0
+
+[node name="Icon" type="Sprite2D" parent="Node2D"]
+scale = Vector2(0.23, 0.23)
+texture = ExtResource("3_iyx0m")
+
+[node name="SpawnPoint" type="Marker2D" parent="Node2D"]
+position = Vector2(200, 200)
+gizmo_extents = 150.5
+
+[node name="Icon" type="Sprite2D" parent="Node2D/SpawnPoint"]
+scale = Vector2(0.23, 0.23)
+texture = ExtResource("3_iyx0m")
+
+[node name="Ball" parent="Node2D/SpawnPoint" instance=ExtResource("1_errlg")]
+position = Vector2(200, 200)
