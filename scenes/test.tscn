@@ -17,7 +17,7 @@ speed = 303.7
 ball_scene = ExtResource("1_errlg")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(523, 639)
+position = Vector2(126, 143)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_ij1v8")
@@ -27,11 +27,11 @@ position = Vector2(530, 604)
 physics_material_override = SubResource("PhysicsMaterial_bl13t")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
-position = Vector2(-354, -341)
-polygon = PackedVector2Array(214, 457, 319, 237, 456, 441)
+position = Vector2(-635, -911)
+polygon = PackedVector2Array(214, 457, 249, 410, 265, 453)
 
 [node name="Node2D" type="Marker2D" parent="."]
-position = Vector2(200, 200)
+position = Vector2(187, 95)
 gizmo_extents = 210.0
 
 [node name="Icon" type="Sprite2D" parent="Node2D"]
@@ -39,12 +39,12 @@ scale = Vector2(0.23, 0.23)
 texture = ExtResource("3_iyx0m")
 
 [node name="SpawnPoint" type="Marker2D" parent="Node2D"]
-position = Vector2(200, 200)
+position = Vector2(-132, -52)
 gizmo_extents = 150.5
 
 [node name="Icon" type="Sprite2D" parent="Node2D/SpawnPoint"]
 scale = Vector2(0.23, 0.23)
 texture = ExtResource("3_iyx0m")
 
-[node name="Ball" parent="Node2D/SpawnPoint" instance=ExtResource("1_errlg")]
-position = Vector2(200, 200)
+[node name="Ball" parent="." instance=ExtResource("1_errlg")]
+position = Vector2(139, 25)
