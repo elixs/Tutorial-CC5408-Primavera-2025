@@ -43,3 +43,7 @@ polygon = PackedVector2Array(-8, -13, -25, 2, -8, 15)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_c4w8v")
+bus = &"SFX"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

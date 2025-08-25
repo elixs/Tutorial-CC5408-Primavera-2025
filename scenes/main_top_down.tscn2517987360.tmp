@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://mynjgie3ravy"]
+
+[ext_resource type="PackedScene" uid="uid://bigwosxqygajf" path="res://scenes/player_top_down.tscn" id="1_47v5c"]
+
+[node name="MainTopDown" type="Node2D"]
+
+[node name="PlayerTopDown" parent="." instance=ExtResource("1_47v5c")]
+position = Vector2(57, 55)

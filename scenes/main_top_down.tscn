@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://mynjgie3ravy"]
+
+[ext_resource type="PackedScene" uid="uid://bigwosxqygajf" path="res://scenes/player_top_down.tscn" id="1_47v5c"]
+[ext_resource type="Texture2D" uid="uid://jt8jjcfkqpon" path="res://icon.svg" id="1_omorr"]
+
+[node name="MainTopDown" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(61, 44)
+scale = Vector2(8.46875, 8.46875)
+texture = ExtResource("1_omorr")
+
+[node name="PlayerTopDown" parent="." instance=ExtResource("1_47v5c")]
+position = Vector2(57, 55)

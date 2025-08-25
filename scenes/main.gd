@@ -11,6 +11,7 @@ func _ready() -> void:
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	for enemy in enemies:
 		enemy.queue_free()
+	AudioManager.start_music()
 	
 
 func _on_player_jumped(value):

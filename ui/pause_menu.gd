@@ -27,5 +27,5 @@ func _on_retry_pressed():
 func _on_main_menu_pressed():
 	visible = false
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://ui/main_menu.tscn")
+	LevelManager.go_to_main_menu()
 	

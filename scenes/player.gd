@@ -6,7 +6,6 @@ signal jumped
 @export var max_speed = 300
 @export var jump_speed = 200
 @export var gravity = 400
-
 @export var acceleration = 500
 
 var was_on_floor = false
@@ -21,7 +20,12 @@ var was_on_floor = false
 func _ready() -> void:
 	Debug.log("player ready", 20)
 	coyote_timer.timeout.connect(_on_coyote_timeout)
+	go_to_next_level()
 
+
+func go_to_next_level():
+	await get_tree().create_timer(5).timeout
+	get_tree().change_scene_to_file("res://scenes/main2.tscn")
 	
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -31,6 +35,8 @@ func _physics_process(delta: float) -> void:
 		velocity.y = -jump_speed
 		jumped.emit(42)
 		was_on_floor = false
+		Game.coins += 1
+		Game.points += 1
 	
 	var move_input = Input.get_axis("move_left", "move_right")
 	velocity.x = move_toward(velocity.x, move_input * max_speed, acceleration * delta)
@@ -38,12 +44,6 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("attack") and not animation_tree["parameters/attack/active"]:
 		animation_tree["parameters/attack/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
-	
-	if floor_ray_cast.is_colliding():
-		Debug.log("floor")
-	else:
-		Debug.log("not floor")
-		
 	
 	if was_on_floor and not is_on_floor():
 		coyote_timer.start()
@@ -66,6 +66,7 @@ func _physics_process(delta: float) -> void:
 			playback.travel("jump")
 		else:
 			playback.travel("fall")
+	Debug.log(Game.points, 0.1)
 
 func can_jump() -> bool:
 	return true

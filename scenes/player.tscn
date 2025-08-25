@@ -189,7 +189,6 @@ animation = &"attack"
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_qlg0r"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_y4r1p"]
-graph_offset = Vector2(-356.817, 63.1521)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_dqkch")
 nodes/Animation/position = Vector2(-93.3333, 413.333)
 nodes/attack/node = SubResource("AnimationNodeOneShot_qlg0r")
@@ -226,7 +225,6 @@ parameters/attack/internal_active = false
 parameters/attack/request = 0
 
 [node name="Pivot" type="Node2D" parent="."]
-scale = Vector2(-1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot"]
 position = Vector2(0, -1)
@@ -241,6 +239,7 @@ script = ExtResource("4_dqkch")
 metadata/_custom_type_script = "uid://b604tw2mkd8mo"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Hitbox"]
+visible = false
 position = Vector2(10.5, -0.5)
 shape = SubResource("RectangleShape2D_qlg0r")
 disabled = true
@@ -252,6 +251,7 @@ script = ExtResource("5_qlg0r")
 metadata/_custom_type_script = "uid://bgrbb0xjerwx3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+visible = false
 shape = SubResource("CapsuleShape2D_tuyoq")
 
 [node name="Camera2D" type="Camera2D" parent="."]

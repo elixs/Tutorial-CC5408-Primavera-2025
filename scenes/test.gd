@@ -25,7 +25,6 @@ func _physics_process(delta: float) -> void:
 		if ball_scene:
 			var ball_inst = ball_scene.instantiate()
 			add_child(ball_inst)
-			#ball_inst.global_position = spawn_point.global_position
 			ball_inst.global_position = get_global_mouse_position()
 		else:
 			print("missing scene")
