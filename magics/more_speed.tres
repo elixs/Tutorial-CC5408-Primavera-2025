@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SpeedStrategy" load_steps=3 format=3 uid="uid://dn6kcpms438ik"]
+
+[ext_resource type="Script" uid="uid://dxwvyikcuuuf6" path="res://magics/speed_strategy.gd" id="1_xydlh"]
+[ext_resource type="Texture2D" uid="uid://cmeqpyvdro4u8" path="res://assets/sprites/speed.png" id="2_pvxt4"]
+
+[resource]
+script = ExtResource("1_xydlh")
+speed = 200
+texture = ExtResource("2_pvxt4")
+display_name = "Speed"
+metadata/_custom_type_script = "uid://dxwvyikcuuuf6"

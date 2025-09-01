@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm4fxako6cyja"]
+
+[ext_resource type="Script" uid="uid://df3dmy3dy4ey1" path="res://scenes/magic.gd" id="1_788o1"]
+[ext_resource type="Texture2D" uid="uid://nx8lnr7eq1oo" path="res://assets/sprites/magic.png" id="2_0f2g5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fggut"]
+radius = 5.0
+
+[node name="Magic" type="Area2D"]
+script = ExtResource("1_788o1")
+metadata/_custom_type_script = "uid://b604tw2mkd8mo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fggut")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0f2g5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(4, 0)
+scale = Vector2(0.382155, 0.382155)
+texture = ExtResource("2_0f2g5")

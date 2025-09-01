@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuwnpp32u0i3o"]
+
+[ext_resource type="Texture2D" uid="uid://ccpkn5cbiew2n" path="res://assets/Tiny Swords (Free Pack)/Units/Black Units/Archer/Archer_Shoot.png" id="1_la7am"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w0bkt"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Gradient" id="Gradient_wwis7"]
+offsets = PackedFloat32Array(0, 0.274074, 0.62963, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hd41n"]
+gradient = SubResource("Gradient_wwis7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l6ysi"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 10.0
+initial_velocity_min = 1.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.5
+color_ramp = SubResource("GradientTexture1D_hd41n")
+anim_speed_min = 1.0
+anim_speed_max = 4.8
+
+[node name="ParticleExample" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_w0bkt")
+texture = ExtResource("1_la7am")
+process_material = SubResource("ParticleProcessMaterial_l6ysi")
+
+[node name="ArcherShoot" type="Sprite2D" parent="."]
+position = Vector2(133, 245)
+texture = ExtResource("1_la7am")

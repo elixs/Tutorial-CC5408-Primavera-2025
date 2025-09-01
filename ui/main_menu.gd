@@ -5,6 +5,8 @@ extends Control
 @onready var credits_button: Button = %CreditsButton
 @onready var quit_button: Button = %QuitButton
 
+@export var click_sound: AudioStream
+
 
 func _ready() -> void:
 	start_button.pressed.connect(_on_start_pressed)
@@ -14,6 +16,7 @@ func _ready() -> void:
 
 func _on_start_pressed():
 	LevelManager.go_next_level()
+	AudioManager.play_sfx(click_sound)
 
 
 func _on_credits_pressed():
