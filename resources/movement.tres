@@ -21,14 +21,14 @@ input_1/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_cv7x7"]
 graph_offset = Vector2(-11.1702, 203.666)
+nodes/output/position = Vector2(1072, 208)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_cv7x7")
 nodes/Animation/position = Vector2(416, 512)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_d04fb")
 "nodes/Animation 2/position" = Vector2(432, 272)
 nodes/idle_blink/node = SubResource("AnimationNodeTransition_d04fb")
 nodes/idle_blink/position = Vector2(768, 224)
-nodes/output/position = Vector2(1072, 208)
-node_connections = [&"idle_blink", 0, &"Animation 2", &"idle_blink", 1, &"Animation", &"output", 0, &"idle_blink"]
+node_connections = [&"output", 0, &"idle_blink", &"idle_blink", 0, &"Animation 2", &"idle_blink", 1, &"Animation"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ur7pv"]
 animation = &"jump"

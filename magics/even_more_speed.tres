@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SpeedStrategy" load_steps=3 format=3 uid="uid://bciscf4yy7yy0"]
 
-[ext_resource type="Script" uid="uid://dxwvyikcuuuf6" path="res://magics/speed_strategy.gd" id="1_64orh"]
+[ext_resource type="Script" uid="uid://dxwvyikcuuuf6" path="res://magics/scripts/speed_strategy.gd" id="1_64orh"]
 [ext_resource type="Texture2D" uid="uid://cmeqpyvdro4u8" path="res://assets/sprites/speed.png" id="2_i7laq"]
 
 [resource]

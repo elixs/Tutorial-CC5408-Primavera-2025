@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4aubg48rief8"]
+
+[ext_resource type="Script" uid="uid://d37oo74pk2ahb" path="res://scenes/sheep.gd" id="1_55m3e"]
+[ext_resource type="Script" uid="uid://20esda0lshni" path="res://components/health_component.gd" id="2_n54i3"]
+[ext_resource type="Script" uid="uid://bgrbb0xjerwx3" path="res://components/hurtbox.gd" id="2_vrdyb"]
+[ext_resource type="Texture2D" uid="uid://ivygf5u5apcp" path="res://assets/Tiny Swords (Free Pack)/Decorations/Sheep/Sheep_Grass.png" id="3_vrdyb"]
+[ext_resource type="AudioStream" uid="uid://cllkxlat7iqcp" path="res://assets/sounds/damage-40114.mp3" id="4_vbo3h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_55m3e"]
+radius = 15.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_n54i3"]
+polygon = PackedVector2Array(-10, 0, -10, -7, -4, -11, 5, -10, 10, -5, 11, 0, 8, 6, 0, 8, -8, 7)
+
+[node name="Sheep" type="Node2D"]
+script = ExtResource("1_55m3e")
+death_sound = ExtResource("4_vbo3h")
+
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+collision_layer = 6
+collision_mask = 6
+script = ExtResource("2_vrdyb")
+health_component = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://bgrbb0xjerwx3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_55m3e")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_n54i3")
+health = 10
+max_health = 10
+metadata/_custom_type_script = "uid://20esda0lshni"
+
+[node name="SheepGrass" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_vrdyb")
+hframes = 12
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_n54i3")

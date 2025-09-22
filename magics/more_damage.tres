@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DamageStrategy" load_steps=3 format=3 uid="uid://dp3kkuw4tqy7f"]
+
+[ext_resource type="Script" uid="uid://cvnx1ag7u8ia3" path="res://magics/scripts/damage_strategy.gd" id="1_xsohg"]
+[ext_resource type="Texture2D" uid="uid://cd2qcbs7g4eiy" path="res://assets/sprites/damage.png" id="2_o3a80"]
+
+[resource]
+script = ExtResource("1_xsohg")
+texture = ExtResource("2_o3a80")
+display_name = "Damage"
+metadata/_custom_type_script = "uid://cvnx1ag7u8ia3"

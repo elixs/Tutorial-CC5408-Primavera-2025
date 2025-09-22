@@ -22,6 +22,8 @@ var magic_strategies: Array[MagicStrategy]
 @onready var blink_timer: Timer = $BlinkTimer
 @onready var dust_spawn: Marker2D = $DustSpawn
 @onready var magic_spawn: Marker2D = $MagicSpawn
+@onready var hud: HUD = $HUD
+@onready var health_component: HealthComponent = $HealthComponent
 
 
 func _ready() -> void:
@@ -29,12 +31,14 @@ func _ready() -> void:
 	coyote_timer.timeout.connect(_on_coyote_timeout)
 	go_to_next_level()
 	blink_timer.timeout.connect(_on_blink_timer)
+	hud.setup(health_component)
 
 
 func go_to_next_level():
 	await get_tree().create_timer(5).timeout
 	get_tree().change_scene_to_file("res://scenes/main2.tscn")
-	
+
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta

@@ -98,7 +98,7 @@ shape = SubResource("RectangleShape2D_sugp2")
 position = Vector2(33, 33)
 
 [node name="Player" parent="." instance=ExtResource("5_kxs5y")]
-position = Vector2(704, 105)
+position = Vector2(651, 98)
 
 [node name="Enemy" parent="." instance=ExtResource("6_f31b2")]
 position = Vector2(66, 121)
@@ -121,7 +121,4 @@ position = Vector2(839, 94)
 magic_strategy = ExtResource("17_ls4ot")
 
 [node name="Sheep" parent="." instance=ExtResource("18_tx362")]
-position = Vector2(757, 118)
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.30375543, 0.30375543, 0.30375543, 1)
+position = Vector2(759, 104)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cvbnx0mtr4iky"]
 
 [ext_resource type="Script" uid="uid://8cr120dwdfk5" path="res://scenes/magic_power_up.gd" id="1_ikdbf"]
-[ext_resource type="Texture2D" uid="uid://d0e8oacj0o3o7" path="res://assets/sprites/magic_powerup.png" id="2_iuwjp"]
+[ext_resource type="Texture2D" uid="uid://cmeqpyvdro4u8" path="res://assets/sprites/speed.png" id="2_iuwjp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u4kir"]
 radius = 6.0
@@ -19,6 +19,7 @@ offset_left = -37.0
 offset_top = -25.0
 offset_right = 37.0
 offset_bottom = -12.0
+text = "Speed+"
 horizontal_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
