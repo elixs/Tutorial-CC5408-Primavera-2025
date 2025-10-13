@@ -47,7 +47,6 @@ func _physics_process(delta: float) -> void:
 		velocity.y = -jump_speed
 		jumped.emit(42)
 		was_on_floor = false
-		Game.coins += 1
 		Game.points += 1
 	
 	var move_input = Input.get_axis("move_left", "move_right")
@@ -58,8 +57,10 @@ func _physics_process(delta: float) -> void:
 		animation_tree["parameters/attack/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 	
 	if Input.is_action_just_pressed("magic") and not animation_tree["parameters/magic/active"]:
+		var direction = sign(get_global_mouse_position().x - magic_spawn.global_position.x)
+		if direction:
+			pivot.scale.x = direction
 		animation_tree["parameters/magic/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
-	
 	
 	if was_on_floor and not is_on_floor():
 		coyote_timer.start()
@@ -91,7 +92,7 @@ func can_jump() -> bool:
 	return true
 
 
-func take_damage(damage):
+func take_damage(_damage):
 	Debug.log("Auch player")
 
 

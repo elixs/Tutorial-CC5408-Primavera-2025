@@ -20,3 +20,7 @@ texture = ExtResource("2_0f2g5")
 position = Vector2(4, 0)
 scale = Vector2(0.382155, 0.382155)
 texture = ExtResource("2_0f2g5")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_0f2g5")

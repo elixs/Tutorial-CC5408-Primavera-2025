@@ -18,6 +18,7 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.move_toward(move_input * max_speed, acceleration * delta)
 	move_and_slide()
 	
+	
 	# animation
 	if move_input.x:
 		pivot.scale.x = sign(move_input.x)
@@ -33,5 +34,5 @@ func _physics_process(delta: float) -> void:
 		#else:
 			#playback.travel("fall")
 
-func take_damage(damage):
+func take_damage(_damage):
 	Debug.log("Auch player")

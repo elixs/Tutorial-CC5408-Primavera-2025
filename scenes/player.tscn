@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dm4fxako6cyja" path="res://scenes/magic.tscn" id="3_fjrip"]
 [ext_resource type="Script" uid="uid://b604tw2mkd8mo" path="res://components/hitbox.gd" id="4_dqkch"]
 [ext_resource type="Script" uid="uid://bgrbb0xjerwx3" path="res://components/hurtbox.gd" id="5_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://wr8fsi3fq32b" path="res://assets/sprites/light_cone_smooth.png" id="7_y4r1p"]
 [ext_resource type="Script" uid="uid://20esda0lshni" path="res://components/health_component.gd" id="8_smehm"]
 [ext_resource type="PackedScene" uid="uid://h3ptqebikjab" path="res://ui/hud.tscn" id="9_ur7pv"]
-[ext_resource type="Texture2D" uid="uid://q2voh6nn8gsd" path="res://assets/sprites/light_cone.png" id="10_y4r1p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
 radius = 6.0
@@ -374,10 +374,9 @@ shape = SubResource("RectangleShape2D_qlg0r")
 disabled = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Pivot"]
-position = Vector2(8, 1)
+position = Vector2(-17, 7)
 shadow_enabled = true
-shadow_filter = 1
-texture = ExtResource("10_y4r1p")
+texture = ExtResource("7_y4r1p")
 offset = Vector2(32, 0)
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
@@ -393,7 +392,7 @@ shape = SubResource("CapsuleShape2D_tuyoq")
 [node name="Camera2D" type="Camera2D" parent="."]
 process_callback = 0
 limit_left = 0
-position_smoothing_speed = 10.0
+position_smoothing_enabled = true
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.2
