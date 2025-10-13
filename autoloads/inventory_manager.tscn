@@ -1,0 +1,15 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckfw0osf1nt4p"]
+
+[ext_resource type="Script" uid="uid://cl47k3onabh8l" path="res://autoloads/inventory_manager.gd" id="1_4brt4"]
+[ext_resource type="Script" uid="uid://657p4u6xt4d8" path="res://items/item_data.gd" id="2_p1dxp"]
+[ext_resource type="Resource" uid="uid://bjl0cchdsdtdv" path="res://items/key.tres" id="3_3htyv"]
+[ext_resource type="Resource" uid="uid://dbwg0d6eh4nv2" path="res://items/potion.tres" id="4_l23n1"]
+[ext_resource type="Resource" uid="uid://v31w7fi82yus" path="res://items/high_potion.tres" id="5_3htyv"]
+
+[node name="InventoryManager" type="Node"]
+script = ExtResource("1_4brt4")
+library = Dictionary[String, ExtResource("2_p1dxp")]({
+"high_potion": ExtResource("5_3htyv"),
+"key": ExtResource("3_3htyv"),
+"potion": ExtResource("4_l23n1")
+})

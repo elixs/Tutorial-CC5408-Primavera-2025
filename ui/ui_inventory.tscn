@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc2xpa1lxp8s4"]
+
+[ext_resource type="Script" uid="uid://b57vvq7n7tmsb" path="res://ui/ui_inventory.gd" id="1_snfsq"]
+[ext_resource type="PackedScene" uid="uid://dhjvynmdgd7uu" path="res://ui/ui_item.tscn" id="2_j1sfx"]
+
+[node name="UIInventory" type="VBoxContainer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_snfsq")
+ui_item_scene = ExtResource("2_j1sfx")

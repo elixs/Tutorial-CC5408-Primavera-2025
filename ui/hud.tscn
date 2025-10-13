@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://h3ptqebikjab"]
+[gd_scene load_steps=7 format=3 uid="uid://h3ptqebikjab"]
 
 [ext_resource type="Script" uid="uid://cjjdl3uuavjg1" path="res://ui/hud.gd" id="1_rbyyf"]
 [ext_resource type="Texture2D" uid="uid://5qvbmvqe28yg" path="res://assets/Dungeon Tile Set.png" id="2_276te"]
+[ext_resource type="PackedScene" uid="uid://bc2xpa1lxp8s4" path="res://ui/ui_inventory.tscn" id="3_546lt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pv4sj"]
 bg_color = Color(0, 0, 0, 1)
@@ -53,3 +54,5 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 text = "XX"
+
+[node name="UIInventory" parent="." instance=ExtResource("3_546lt")]

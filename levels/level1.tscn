@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cwltjonmsnnyp"]
+[gd_scene load_steps=25 format=4 uid="uid://cwltjonmsnnyp"]
 
 [ext_resource type="Script" uid="uid://b40fuuc5acx4o" path="res://scenes/main.gd" id="1_kejo5"]
 [ext_resource type="TileSet" uid="uid://c3xv7w72r1iil" path="res://resources/dungeon_tileset.tres" id="2_8hd6v"]
@@ -19,6 +19,10 @@
 [ext_resource type="Resource" uid="uid://bciscf4yy7yy0" path="res://magics/even_more_speed.tres" id="17_ls4ot"]
 [ext_resource type="PackedScene" uid="uid://b4aubg48rief8" path="res://scenes/sheep.tscn" id="18_tx362"]
 [ext_resource type="PackedScene" uid="uid://dm6hsc4apgvho" path="res://scenes/coin.tscn" id="19_l7nqg"]
+[ext_resource type="PackedScene" uid="uid://dgl7nmosns7hw" path="res://scenes/item.tscn" id="20_2nn5w"]
+[ext_resource type="Resource" uid="uid://bjl0cchdsdtdv" path="res://items/key.tres" id="21_ou4v7"]
+[ext_resource type="Resource" uid="uid://v31w7fi82yus" path="res://items/high_potion.tres" id="22_53hnx"]
+[ext_resource type="Resource" uid="uid://dbwg0d6eh4nv2" path="res://items/potion.tres" id="22_ou4v7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
 size = Vector2(86, 70)
@@ -117,24 +121,40 @@ position = Vector2(271, 31)
 position = Vector2(611, 112)
 
 [node name="MagicPowerUp" parent="." instance=ExtResource("15_a5s8o")]
-position = Vector2(812, 94)
+position = Vector2(619, 75)
 magic_strategy = ExtResource("16_ls4ot")
 
 [node name="MagicPowerUp2" parent="." instance=ExtResource("15_a5s8o")]
-position = Vector2(839, 94)
+position = Vector2(594, 72)
 magic_strategy = ExtResource("17_ls4ot")
 
 [node name="Sheep" parent="." instance=ExtResource("18_tx362")]
-position = Vector2(831, 115)
+position = Vector2(680, 143)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.44291106, 0.44291067, 0.44291073, 1)
 
 [node name="Coin" parent="." instance=ExtResource("19_l7nqg")]
-position = Vector2(762, 112)
+position = Vector2(907, 27)
 
 [node name="Coin2" parent="." instance=ExtResource("19_l7nqg")]
-position = Vector2(767, 75)
+position = Vector2(907, -4)
 
 [node name="Coin3" parent="." instance=ExtResource("19_l7nqg")]
-position = Vector2(787, 100)
+position = Vector2(870, 44)
+
+[node name="Item" parent="." instance=ExtResource("20_2nn5w")]
+position = Vector2(860, 68)
+data = ExtResource("21_ou4v7")
+
+[node name="Item2" parent="." instance=ExtResource("20_2nn5w")]
+position = Vector2(818, 108)
+data = ExtResource("22_53hnx")
+
+[node name="Item4" parent="." instance=ExtResource("20_2nn5w")]
+position = Vector2(772, 106)
+data = ExtResource("22_ou4v7")
+
+[node name="Item3" parent="." instance=ExtResource("20_2nn5w")]
+position = Vector2(865, 92)
+data = ExtResource("21_ou4v7")

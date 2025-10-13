@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhjvynmdgd7uu"]
+
+[ext_resource type="Texture2D" uid="uid://jt8jjcfkqpon" path="res://icon.svg" id="1_87043"]
+[ext_resource type="Script" uid="uid://cxp10qdkoctkr" path="res://ui/ui_item.gd" id="1_bnmnu"]
+
+[node name="UIItem" type="HBoxContainer"]
+offset_right = 46.0
+offset_bottom = 16.0
+script = ExtResource("1_bnmnu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_87043")
+expand_mode = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+text = "x"
+
+[node name="Quantity" type="Label" parent="."]
+layout_mode = 2
+text = "name"

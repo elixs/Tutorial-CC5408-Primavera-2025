@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgl7nmosns7hw"]
+
+[ext_resource type="Script" uid="uid://ct3v0k1vi0eip" path="res://scenes/item.gd" id="1_4gq7n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r3ghi"]
+radius = 27.166155
+
+[node name="Item" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_4gq7n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_r3ghi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -50.0
+offset_top = -22.0
+offset_right = 54.0
+offset_bottom = -9.0
+text = "name"
+horizontal_alignment = 1

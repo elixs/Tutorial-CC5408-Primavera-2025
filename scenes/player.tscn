@@ -326,10 +326,10 @@ radius = 8.0
 height = 32.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 3
 collision_mask = 5
 floor_snap_length = 20.0
 script = ExtResource("1_g2els")
-max_speed = 100
 dust_particles_scene = ExtResource("2_tuyoq")
 magic_scene = ExtResource("3_fjrip")
 

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://bjl0cchdsdtdv"]
+
+[ext_resource type="Texture2D" uid="uid://5qvbmvqe28yg" path="res://assets/Dungeon Tile Set.png" id="1_646gu"]
+[ext_resource type="Script" uid="uid://657p4u6xt4d8" path="res://items/item_data.gd" id="2_d1xeg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqh7e"]
+atlas = ExtResource("1_646gu")
+region = Rect2(176, 144, 16, 16)
+
+[resource]
+script = ExtResource("2_d1xeg")
+id = "key"
+display_name = "Key"
+description = "Opens doors"
+image = SubResource("AtlasTexture_lqh7e")
+metadata/_custom_type_script = "uid://657p4u6xt4d8"

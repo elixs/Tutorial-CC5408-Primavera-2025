@@ -27,7 +27,6 @@ var magic_strategies: Array[MagicStrategy]
 
 
 func _ready() -> void:
-	Debug.log("player ready", 20)
 	coyote_timer.timeout.connect(_on_coyote_timeout)
 	go_to_next_level()
 	blink_timer.timeout.connect(_on_blink_timer)
@@ -61,6 +60,9 @@ func _physics_process(delta: float) -> void:
 		if direction:
 			pivot.scale.x = direction
 		animation_tree["parameters/magic/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+	
+	if Input.is_action_just_pressed("use"):
+		_use_healing_item()
 	
 	if was_on_floor and not is_on_floor():
 		coyote_timer.start()
@@ -120,3 +122,17 @@ func spawn_magic():
 	magic_inst.global_rotation = magic_spawn.global_position.direction_to(get_global_mouse_position()).angle()
 	for magic_strategy in magic_strategies:
 		magic_strategy.apply_strategy(magic_inst)
+
+
+func heal(amount: int) -> void:
+	health_component.health += amount
+
+
+func _use_healing_item() -> void:
+	for id in InventoryManager.inventory.keys():
+		var data = InventoryManager.library[id]
+		var healing_item = data as HealingItemData
+		if healing_item:
+			healing_item.use(self)
+			InventoryManager.drop(healing_item)
+			break
