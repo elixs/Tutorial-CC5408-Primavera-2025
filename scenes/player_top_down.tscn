@@ -1,9 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bigwosxqygajf"]
+[gd_scene load_steps=21 format=3 uid="uid://bigwosxqygajf"]
 
 [ext_resource type="Script" uid="uid://bo12xqdo73qt8" path="res://scenes/player_top_down.gd" id="1_vdmty"]
 [ext_resource type="Texture2D" uid="uid://dkqpmkq845hor" path="res://assets/Tiny Swords (Free Pack)/Units/Yellow Units/Lancer/Lancer_Idle.png" id="2_vdmty"]
 [ext_resource type="Script" uid="uid://b604tw2mkd8mo" path="res://components/hitbox.gd" id="4_6l64u"]
-[ext_resource type="Texture2D" uid="uid://dth0ugm0ixk6i" path="res://assets/Tiny Swords (Free Pack)/Units/Yellow Units/Lancer/Lancer_Right_Defence.png" id="5_et54c"]
+[ext_resource type="Texture2D" uid="uid://5ds15g7v80lp" path="res://assets/Tiny Swords (Free Pack)/Units/Yellow Units/Lancer/Lancer_Run.png" id="5_et54c"]
 [ext_resource type="Script" uid="uid://bgrbb0xjerwx3" path="res://components/hurtbox.gd" id="5_wi1dl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_et54c"]
@@ -100,6 +100,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_u5ewv"]
 resource_name = "run"
 length = 0.6
+loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -145,6 +146,37 @@ _data = {
 &"run": SubResource("Animation_u5ewv")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_et54c"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u5ewv"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_l8jub"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_6l64u"]
+graph_offset = Vector2(-392.54095, 81.35385)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_u5ewv")
+nodes/Animation/position = Vector2(-120, 200)
+nodes/time_scale/node = SubResource("AnimationNodeTimeScale_l8jub")
+nodes/time_scale/position = Vector2(60, 160)
+node_connections = [&"output", 0, &"time_scale", &"time_scale", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l8jub"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wi1dl"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_twoxr"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_twoxr"]
+states/idle/node = SubResource("AnimationNodeAnimation_et54c")
+states/idle/position = Vector2(350, 100)
+states/run/node = SubResource("AnimationNodeBlendTree_6l64u")
+states/run/position = Vector2(533, 95)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_l8jub"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_wi1dl"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_twoxr")]
+graph_offset = Vector2(27, 49)
+
 [node name="PlayerTopDown" type="CharacterBody2D"]
 collision_mask = 5
 script = ExtResource("1_vdmty")
@@ -153,7 +185,7 @@ script = ExtResource("1_vdmty")
 shape = SubResource("CircleShape2D_et54c")
 
 [node name="Pivot" type="Node2D" parent="."]
-scale = Vector2(-1, 1)
+unique_name_in_owner = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot"]
 position = Vector2(0, -7)
@@ -189,3 +221,8 @@ zoom = Vector2(0.8, 0.8)
 libraries = {
 &"": SubResource("AnimationLibrary_u5ewv")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_twoxr")
+anim_player = NodePath("../AnimationPlayer")
+parameters/run/time_scale/scale = 1.0

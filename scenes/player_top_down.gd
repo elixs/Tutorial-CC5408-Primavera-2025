@@ -6,8 +6,8 @@ extends CharacterBody2D
 @export var acceleration = 500
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-#@onready var animation_tree: AnimationTree = $AnimationTree
-#@onready var playback: AnimationNodeStateMachinePlayback = animation_tree["parameters/movement/playback"]
+@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var playback: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
 @onready var pivot: Node2D = $Pivot
 
 
@@ -23,16 +23,15 @@ func _physics_process(delta: float) -> void:
 	if move_input.x:
 		pivot.scale.x = sign(move_input.x)
 	
-	#if is_on_floor():
-		#if move_input or abs(velocity.x) > 10:
-			#playback.travel("run")
-		#else:
-			#playback.travel("idle")
-	#else:
-		#if velocity.y < 0:
-			#playback.travel("jump")
-		#else:
-			#playback.travel("fall")
+	
+	var speed = velocity.length()
+	if move_input or speed > 10:
+		playback.travel("run")
+	else:
+		playback.travel("idle")
+	
+	animation_tree["parameters/run/time_scale/scale"] = speed / (max_speed * 0.5)
+	
 
 func take_damage(_damage):
 	Debug.log("Auch player")

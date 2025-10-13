@@ -17,9 +17,10 @@ var _wandering_radius = 300
 
 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
-@onready var follow_area: Area2D = $FollowArea
-@onready var unfollow_area: Area2D = $UnfollowArea
+@onready var follow_area: Area2D = %FollowArea
+@onready var unfollow_area: Area2D = %UnfollowArea
 @onready var path_timer: Timer = $PathTimer
+@onready var pivot: Node2D = %Pivot
 
 
 func _ready() -> void:
@@ -36,6 +37,8 @@ func _physics_process(delta: float) -> void:
 			_wandering(delta)
 		State.FOLLOWING:
 			_following(delta)
+	if velocity.x:
+		pivot.scale.x = sign(velocity.x)
 
 
 
