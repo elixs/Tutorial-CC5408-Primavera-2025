@@ -1,0 +1,32 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=8 format=3 uid="uid://bfdlsou0gf8um"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_et54c"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u5ewv"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_l8jub"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_6l64u"]
+graph_offset = Vector2(-392.54095, 81.35385)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_u5ewv")
+nodes/Animation/position = Vector2(-120, 200)
+nodes/time_scale/node = SubResource("AnimationNodeTimeScale_l8jub")
+nodes/time_scale/position = Vector2(60, 160)
+node_connections = [&"output", 0, &"time_scale", &"time_scale", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l8jub"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wi1dl"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_twoxr"]
+
+[resource]
+states/idle/node = SubResource("AnimationNodeAnimation_et54c")
+states/idle/position = Vector2(350, 100)
+states/run/node = SubResource("AnimationNodeBlendTree_6l64u")
+states/run/position = Vector2(533, 95)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_l8jub"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_wi1dl"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_twoxr")]
+graph_offset = Vector2(-31, -23)

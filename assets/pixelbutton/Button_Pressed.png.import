@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcf2lh0ihqbwm"
-path="res://.godot/imported/Lancer_DownRight_Attack.png-13ecc612b79aa9aada6c1a7b9fea7b73.ctex"
+uid="uid://d08gejs3w3qo8"
+path="res://.godot/imported/Button_Pressed.png-42d4c8ca01de3492a242351cf6fdc058.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tiny Swords (Free Pack)/Units/Yellow Units/Lancer/Lancer_DownRight_Attack.png"
-dest_files=["res://.godot/imported/Lancer_DownRight_Attack.png-13ecc612b79aa9aada6c1a7b9fea7b73.ctex"]
+source_file="res://assets/pixelbutton/Button_Pressed.png"
+dest_files=["res://.godot/imported/Button_Pressed.png-42d4c8ca01de3492a242351cf6fdc058.ctex"]
 
 [params]
 
