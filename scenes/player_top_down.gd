@@ -4,14 +4,19 @@ extends CharacterBody2D
 
 @export var max_speed = 300
 @export var acceleration = 500
+@export var attack_fx_scene: PackedScene
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var playback: AnimationNodeStateMachinePlayback = animation_tree["parameters/movement/playback"]
 @onready var pivot: Node2D = $Pivot
+@onready var marker_attack_up: Marker2D = %MarkerAttackUp
+@onready var marker_attack_right_up: Marker2D = %MarkerAttackRightUp
+@onready var marker_attack_right: Marker2D = %MarkerAttackRight
+@onready var marker_attack_right_down: Marker2D = %MarkerAttackRightDown
+@onready var marker_attack_down: Marker2D = %MarkerAttackDown
 
 
-	
 func _physics_process(delta: float) -> void:
 	
 	var move_input = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -19,10 +24,7 @@ func _physics_process(delta: float) -> void:
 	if animation_tree["parameters/attack/active"]:
 		move_input = Vector2.ZERO
 	
-	
 	velocity = velocity.move_toward(move_input * max_speed, acceleration * delta)
-	
-	
 	
 	move_and_slide()
 	
@@ -33,11 +35,9 @@ func _physics_process(delta: float) -> void:
 		move_input = Vector2.ZERO
 		pivot.scale.x = sign(attack_direction.x)
 	
-	
 	# animation
 	if move_input.x:
 		pivot.scale.x = sign(move_input.x)
-	
 	
 	var speed = velocity.length()
 	if move_input or speed > 10:
@@ -49,3 +49,10 @@ func _physics_process(delta: float) -> void:
 
 func take_damage(_damage):
 	Debug.log("Auch player")
+
+
+func spawn_fx(fx_scene: PackedScene, marker: Marker2D) -> void:
+	var fx_inst = fx_scene.instantiate()
+	add_child(fx_inst)
+	fx_inst.global_position = marker.global_position
+	fx_inst.global_rotation = marker.global_rotation
