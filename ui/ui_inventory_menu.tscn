@@ -1,0 +1,75 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjpcqfyirj31c"]
+
+[ext_resource type="PackedScene" uid="uid://4vn2sbmya0f" path="res://ui/ui_menu_item.tscn" id="1_5mk3o"]
+
+[node name="UIInventoryMenu" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+columns = 6
+
+[node name="UIMenuItem" parent="MarginContainer/GridContainer" instance=ExtResource("1_5mk3o")]
+layout_mode = 2
+
+[node name="UIMenuItem2" parent="MarginContainer/GridContainer" instance=ExtResource("1_5mk3o")]
+layout_mode = 2
+
+[node name="UIMenuItem3" parent="MarginContainer/GridContainer" instance=ExtResource("1_5mk3o")]
+layout_mode = 2
+
+[node name="UIMenuItem4" parent="MarginContainer/GridContainer" instance=ExtResource("1_5mk3o")]
+layout_mode = 2
+
+[node name="UIMenuItem5" parent="MarginContainer/GridContainer" instance=ExtResource("1_5mk3o")]
+layout_mode = 2
+
+[node name="UIMenuItem6" parent="MarginContainer/GridContainer" instance=ExtResource("1_5mk3o")]
+layout_mode = 2
+
+[node name="UIMenuItem7" parent="MarginContainer/GridContainer" instance=ExtResource("1_5mk3o")]
+layout_mode = 2
+
+[node name="UIMenuItem8" parent="MarginContainer/GridContainer" instance=ExtResource("1_5mk3o")]
+layout_mode = 2
+
+[node name="UIMenuItem9" parent="MarginContainer/GridContainer" instance=ExtResource("1_5mk3o")]
+layout_mode = 2
+
+[node name="UIMenuItem10" parent="MarginContainer/GridContainer" instance=ExtResource("1_5mk3o")]
+layout_mode = 2
+
+[node name="UIMenuItem11" parent="MarginContainer/GridContainer" instance=ExtResource("1_5mk3o")]
+layout_mode = 2
+
+[node name="UIMenuItem12" parent="MarginContainer/GridContainer" instance=ExtResource("1_5mk3o")]
+layout_mode = 2
+
+[node name="UIMenuItem13" parent="MarginContainer/GridContainer" instance=ExtResource("1_5mk3o")]
+layout_mode = 2
+
+[node name="UIMenuItem14" parent="MarginContainer/GridContainer" instance=ExtResource("1_5mk3o")]
+layout_mode = 2
+
+[node name="UIMenuItem15" parent="MarginContainer/GridContainer" instance=ExtResource("1_5mk3o")]
+layout_mode = 2
+
+[node name="UIMenuItem16" parent="MarginContainer/GridContainer" instance=ExtResource("1_5mk3o")]
+layout_mode = 2
+
+[node name="UIMenuItem17" parent="MarginContainer/GridContainer" instance=ExtResource("1_5mk3o")]
+layout_mode = 2
+
+[node name="UIMenuItem18" parent="MarginContainer/GridContainer" instance=ExtResource("1_5mk3o")]
+layout_mode = 2

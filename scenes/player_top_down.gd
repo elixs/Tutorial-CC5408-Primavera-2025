@@ -10,11 +10,7 @@ extends CharacterBody2D
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var playback: AnimationNodeStateMachinePlayback = animation_tree["parameters/movement/playback"]
 @onready var pivot: Node2D = $Pivot
-@onready var marker_attack_up: Marker2D = %MarkerAttackUp
-@onready var marker_attack_right_up: Marker2D = %MarkerAttackRightUp
-@onready var marker_attack_right: Marker2D = %MarkerAttackRight
-@onready var marker_attack_right_down: Marker2D = %MarkerAttackRightDown
-@onready var marker_attack_down: Marker2D = %MarkerAttackDown
+@onready var marker_attack: Marker2D = %MarkerAttack
 
 
 func _physics_process(delta: float) -> void:
@@ -34,6 +30,7 @@ func _physics_process(delta: float) -> void:
 		animation_tree["parameters/attack/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 		move_input = Vector2.ZERO
 		pivot.scale.x = sign(attack_direction.x)
+		spawn_fx(attack_fx_scene, marker_attack)
 	
 	# animation
 	if move_input.x:

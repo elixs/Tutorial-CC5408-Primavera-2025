@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://divqi2cquq80d"]
+
+[ext_resource type="Texture2D" uid="uid://jt8jjcfkqpon" path="res://icon.svg" id="1_1qe8l"]
+[ext_resource type="Script" uid="uid://bue7d64lvvhiu" path="res://ui/ui_tooltip.gd" id="1_nswhj"]
+
+[node name="UITooltip" type="PanelContainer"]
+z_index = 10
+offset_right = 82.0
+offset_bottom = 86.0
+mouse_filter = 2
+script = ExtResource("1_nswhj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_1qe8l")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Item name"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+text = "Description"

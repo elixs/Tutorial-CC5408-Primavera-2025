@@ -11,7 +11,7 @@ extends HBoxContainer
 
 func _ready() -> void:
 	update()
-	#InventoryManager.inventory_changed.connect(update)
+	#InventoryManager.inventory_changed.connect(Óupdate)
 
 
 func update() -> void:

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://i1jpt7oyrevb"]
+[gd_scene load_steps=6 format=3 uid="uid://i1jpt7oyrevb"]
 
 [ext_resource type="Texture2D" uid="uid://2uhxtcxe2adt" path="res://assets/fx/Bubbles/16x16/bubble_6.png" id="1_3smur"]
+[ext_resource type="Script" uid="uid://dqfrjuqjw6hcx" path="res://fx/bubble_burst.gd" id="2_f1y47"]
 
 [sub_resource type="Curve" id="Curve_j2u50"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5935252, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -32,3 +33,4 @@ texture = ExtResource("1_3smur")
 one_shot = true
 explosiveness = 0.98
 process_material = SubResource("ParticleProcessMaterial_j358j")
+script = ExtResource("2_f1y47")

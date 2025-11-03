@@ -1,0 +1,98 @@
+[gd_scene load_steps=10 format=3 uid="uid://dcif2oxw6bh5c"]
+
+[ext_resource type="Script" uid="uid://bdgn0hr3agcf7" path="res://scenes/victory.gd" id="1_faxov"]
+[ext_resource type="Texture2D" uid="uid://dkf6i1w3ynn2t" path="res://assets/Tiny Swords (Free Pack)/Decorations/Bushes/Bushe1.png" id="1_le47n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_faxov"]
+radius = 104.00481
+
+[sub_resource type="Animation" id="Animation_hl81x"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_73dpb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g6lwx"]
+_data = {
+&"RESET": SubResource("Animation_73dpb"),
+&"idle": SubResource("Animation_hl81x")
+}
+
+[sub_resource type="Curve" id="Curve_faxov"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hl81x"]
+curve = SubResource("Curve_faxov")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_73dpb"]
+particle_flag_disable_z = true
+angle_min = -630.8
+angle_max = 630.9
+spread = 180.0
+initial_velocity_min = 47.62
+initial_velocity_max = 133.33
+angular_velocity_min = -336.0
+angular_velocity_max = 349.70996
+gravity = Vector3(0, 100, 0)
+damping_min = 7.1110005
+damping_max = 12.8880005
+scale_min = 4.0
+scale_max = 4.0
+color = Color(1, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_hl81x")
+hue_variation_min = -1.0
+hue_variation_max = 0.99999994
+
+[node name="Victory" type="Area2D"]
+script = ExtResource("1_faxov")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_faxov")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_le47n")
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_g6lwx")
+}
+autoplay = "idle"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(133, 25)
+amount = 100
+lifetime = 3.0
+explosiveness = 1.0
+trail_lifetime = 0.060000000000000005
+process_material = SubResource("ParticleProcessMaterial_73dpb")

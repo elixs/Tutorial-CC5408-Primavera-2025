@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://4vn2sbmya0f"]
+
+[ext_resource type="Texture2D" uid="uid://jt8jjcfkqpon" path="res://icon.svg" id="1_xql2e"]
+[ext_resource type="Script" uid="uid://cm5vdll5yvajr" path="res://ui/ui_menu_item.gd" id="1_yq6tg"]
+[ext_resource type="PackedScene" uid="uid://divqi2cquq80d" path="res://ui/ui_tooltip.tscn" id="3_3cwqj"]
+
+[node name="UIMenuItem" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_yq6tg")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_xql2e")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/outline_size = 3
+text = "12"
+horizontal_alignment = 2
+autowrap_trim_flags = 128
+
+[node name="UITooltipParent" type="Control" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="UITooltip" parent="UITooltipParent" instance=ExtResource("3_3cwqj")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+mouse_filter = 2
