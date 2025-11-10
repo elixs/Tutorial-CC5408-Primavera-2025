@@ -1,11 +1,13 @@
-[gd_scene load_steps=33 format=3 uid="uid://db4rg7lwlqfjn"]
+[gd_scene load_steps=35 format=3 uid="uid://db4rg7lwlqfjn"]
 
 [ext_resource type="Texture2D" uid="uid://ct0v1de0fm7dq" path="res://assets/sprites/AnimationSheet_Character.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://cbt8nmokqklby" path="res://scenes/player.gd" id="1_g2els"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://c7gcyq2kp5b75" path="res://resources/movement.tres" id="2_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://cqiwok5e14x1r" path="res://scenes/dust_particles.tscn" id="2_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://dm4fxako6cyja" path="res://scenes/magic.tscn" id="3_fjrip"]
+[ext_resource type="PackedScene" uid="uid://uw1go0ldhbij" path="res://scenes/flashlight.tscn" id="4_3v2ag"]
 [ext_resource type="Script" uid="uid://b604tw2mkd8mo" path="res://components/hitbox.gd" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://2kq0y1fx2o0" path="res://assets/sprites/flashlight.png" id="5_d2wvv"]
 [ext_resource type="Script" uid="uid://bgrbb0xjerwx3" path="res://components/hurtbox.gd" id="5_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://wr8fsi3fq32b" path="res://assets/sprites/light_cone_smooth.png" id="7_y4r1p"]
 [ext_resource type="Script" uid="uid://20esda0lshni" path="res://components/health_component.gd" id="8_smehm"]
@@ -332,6 +334,7 @@ floor_snap_length = 20.0
 script = ExtResource("1_g2els")
 dust_particles_scene = ExtResource("2_tuyoq")
 magic_scene = ExtResource("3_fjrip")
+flashlight_scene = ExtResource("4_3v2ag")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_g2els")
@@ -356,6 +359,12 @@ parameters/movement/idle/idle_blink/current_index = 0
 
 [node name="Pivot" type="Node2D" parent="."]
 
+[node name="FlashlightSprite" type="Sprite2D" parent="Pivot"]
+unique_name_in_owner = true
+position = Vector2(5, 3)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_d2wvv")
+
 [node name="Sprite2D" type="Sprite2D" parent="Pivot"]
 position = Vector2(0, -1)
 texture = ExtResource("1_3vyb7")
@@ -373,8 +382,8 @@ position = Vector2(10.5, -0.5)
 shape = SubResource("RectangleShape2D_qlg0r")
 disabled = true
 
-[node name="PointLight2D" type="PointLight2D" parent="Pivot"]
-position = Vector2(-17, 7)
+[node name="FlashlightLight" type="PointLight2D" parent="Pivot"]
+position = Vector2(-15, 11)
 shadow_enabled = true
 texture = ExtResource("7_y4r1p")
 offset = Vector2(32, 0)

@@ -160,7 +160,5 @@ data = ExtResource("22_ou4v7")
 position = Vector2(865, 92)
 data = ExtResource("21_ou4v7")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Victory" parent="CanvasLayer" instance=ExtResource("7_mxqdg")]
-position = Vector2(1376, 280)
+[node name="Victory" parent="." instance=ExtResource("7_mxqdg")]
+position = Vector2(1415, 267)

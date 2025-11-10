@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://mdgmfmiponp1"]
+[gd_scene load_steps=4 format=3 uid="uid://mdgmfmiponp1"]
 
 [ext_resource type="Script" uid="uid://4o2oy7khqft2" path="res://ui/main_menu.gd" id="1_5oih7"]
 [ext_resource type="AudioStream" uid="uid://cco6f5p08lb8h" path="res://assets/sounds/computer-mouse-click-352734.mp3" id="2_0dkrt"]
+[ext_resource type="Texture2D" uid="uid://jt8jjcfkqpon" path="res://icon.svg" id="3_wk0pr"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -58,7 +59,30 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
 
-[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Joke" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 8
 text = "this is fun"
 horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="Window" type="Window" parent="."]
+oversampling_override = 1.0
+position = Vector2i(100, 100)
+size = Vector2i(500, 500)
+visible = false
+
+[node name="WindowQuitButton" type="Button" parent="Window"]
+unique_name_in_owner = true
+offset_left = 124.0
+offset_top = 173.0
+offset_right = 144.0
+offset_bottom = 186.0
+text = "Quit"
+
+[node name="Icon" type="Sprite2D" parent="Window"]
+position = Vector2(133, 102)
+texture = ExtResource("3_wk0pr")

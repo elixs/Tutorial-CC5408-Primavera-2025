@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d28ckt0txwo26"]
+
+[ext_resource type="Script" uid="uid://dmerad8exc3ti" path="res://autoloads/game.gd" id="1_t55jy"]
+[ext_resource type="PackedScene" uid="uid://b2k8x3mat6uyo" path="res://ui/surprise.tscn" id="2_hihc8"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_t55jy")
+
+[node name="Surprise" parent="." instance=ExtResource("2_hihc8")]

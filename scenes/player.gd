@@ -9,9 +9,11 @@ signal jumped
 @export var acceleration = 500
 @export var dust_particles_scene: PackedScene
 @export var magic_scene: PackedScene
+@export var flashlight_scene: PackedScene
 
 var was_on_floor = false
 var magic_strategies: Array[MagicStrategy]
+var _flashlight_inst: RigidBody2D = null
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -24,6 +26,8 @@ var magic_strategies: Array[MagicStrategy]
 @onready var magic_spawn: Marker2D = $MagicSpawn
 @onready var hud: HUD = $HUD
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var flashlight_sprite: Sprite2D = %FlashlightSprite
+@onready var flashlight_light: PointLight2D = $Pivot/FlashlightLight
 
 
 func _ready() -> void:
@@ -37,6 +41,21 @@ func go_to_next_level():
 	await get_tree().create_timer(5).timeout
 	get_tree().change_scene_to_file("res://scenes/main2.tscn")
 
+
+func  _input(event: InputEvent) -> void:
+	if event.is_action_pressed("drop"):
+		if _flashlight_inst:
+			_flashlight_inst.queue_free()
+			flashlight_sprite.show()
+			flashlight_light.show()
+		else:
+			flashlight_light.hide()
+			flashlight_sprite.hide()
+			_flashlight_inst = flashlight_scene.instantiate()
+			get_parent().add_child(_flashlight_inst)
+			_flashlight_inst.global_position = flashlight_sprite.global_position
+			_flashlight_inst.global_rotation = flashlight_sprite.global_rotation
+			_flashlight_inst.apply_impulse(Vector2(pivot.scale.x, 0) * 300)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
