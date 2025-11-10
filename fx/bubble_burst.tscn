@@ -27,6 +27,7 @@ turbulence_noise_strength = 0.0
 turbulence_noise_scale = 0.0
 
 [node name="BubbleBurst" type="GPUParticles2D"]
+z_index = 5
 emitting = false
 amount = 100
 texture = ExtResource("1_3smur")

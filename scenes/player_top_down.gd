@@ -30,7 +30,6 @@ func _physics_process(delta: float) -> void:
 		animation_tree["parameters/attack/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 		move_input = Vector2.ZERO
 		pivot.scale.x = sign(attack_direction.x)
-		spawn_fx(attack_fx_scene, marker_attack)
 	
 	# animation
 	if move_input.x:
@@ -53,3 +52,7 @@ func spawn_fx(fx_scene: PackedScene, marker: Marker2D) -> void:
 	add_child(fx_inst)
 	fx_inst.global_position = marker.global_position
 	fx_inst.global_rotation = marker.global_rotation
+
+
+func spawn_bubbles() -> void:
+	spawn_fx(attack_fx_scene, marker_attack)

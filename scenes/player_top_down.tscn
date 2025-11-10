@@ -224,7 +224,21 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.5707964]
+"values": [4.71238898038469]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_bubbles"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_wuqew"]
@@ -301,7 +315,21 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.7853982]
+"values": [3.9269908169872414]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_bubbles"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_kxpd4"]
@@ -378,7 +406,21 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [3.141592653589793]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_bubbles"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_5qgjb"]
@@ -443,8 +485,8 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [null, NodePath("")],
-"method": &"spawn_fx"
+"args": [],
+"method": &"spawn_bubbles"
 }]
 }
 tracks/5/type = "value"
@@ -457,7 +499,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-1.5707964]
+"values": [1.5707963267948966]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -546,7 +588,21 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.7853982]
+"values": [2.356194490192345]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_bubbles"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_vdmty"]
@@ -750,6 +806,3 @@ parameters/attack/active = false
 parameters/attack/internal_active = false
 parameters/attack/request = 0
 parameters/attack_blend_space/blend_position = Vector2(-1.1707098, 1.0183728)
-
-[node name="BubbleBurst" parent="." instance=ExtResource("2_j2u50")]
-position = Vector2(0, 14)
