@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://db4rg7lwlqfjn"]
+[gd_scene load_steps=36 format=3 uid="uid://db4rg7lwlqfjn"]
 
 [ext_resource type="Texture2D" uid="uid://ct0v1de0fm7dq" path="res://assets/sprites/AnimationSheet_Character.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://cbt8nmokqklby" path="res://scenes/player.gd" id="1_g2els"]
@@ -327,6 +327,10 @@ size = Vector2(11, 31)
 radius = 8.0
 height = 32.0
 
+[sub_resource type="Curve" id="Curve_3v2ag"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 3
 collision_mask = 5
@@ -425,3 +429,7 @@ script = ExtResource("8_smehm")
 metadata/_custom_type_script = "uid://20esda0lshni"
 
 [node name="HUD" parent="." instance=ExtResource("9_ur7pv")]
+
+[node name="Tail" type="Line2D" parent="."]
+points = PackedVector2Array(0, -1, -24, -27, 8, -52, 60, -56)
+width_curve = SubResource("Curve_3v2ag")

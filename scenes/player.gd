@@ -28,6 +28,7 @@ var _flashlight_inst: RigidBody2D = null
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var flashlight_sprite: Sprite2D = %FlashlightSprite
 @onready var flashlight_light: PointLight2D = $Pivot/FlashlightLight
+@onready var tail: Line2D = $Tail
 
 
 func _ready() -> void:
@@ -35,6 +36,7 @@ func _ready() -> void:
 	go_to_next_level()
 	blink_timer.timeout.connect(_on_blink_timer)
 	hud.setup(health_component)
+	init_tail()
 
 
 func go_to_next_level():
@@ -56,6 +58,11 @@ func  _input(event: InputEvent) -> void:
 			_flashlight_inst.global_position = flashlight_sprite.global_position
 			_flashlight_inst.global_rotation = flashlight_sprite.global_rotation
 			_flashlight_inst.apply_impulse(Vector2(pivot.scale.x, 0) * 300)
+
+
+func _process(_delta: float) -> void:
+	handle_tail(3)
+
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -155,3 +162,16 @@ func _use_healing_item() -> void:
 			healing_item.use(self)
 			InventoryManager.drop(healing_item)
 			break
+
+var tail_segments: Array[float] = []
+
+func init_tail() ->  void:
+	for i in tail.points.size() - 1:
+		var dist = tail.points[i].distance_to(tail.points[i + 1])
+		tail_segments.push_back(dist)
+	
+func handle_tail(iterations: int) -> void:
+	if tail.points.size() < 1:
+		return
+	for i in iterations:
+		pass

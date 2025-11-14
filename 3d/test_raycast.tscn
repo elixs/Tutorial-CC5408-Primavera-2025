@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://drug2qgfqlbi4"]
+[gd_scene load_steps=15 format=3 uid="uid://drug2qgfqlbi4"]
 
 [ext_resource type="Script" uid="uid://baqte8subjt0x" path="res://3d/test_raycast.gd" id="1_bstkd"]
+[ext_resource type="PackedScene" uid="uid://d2621sorpl2cd" path="res://3d/prism.tscn" id="2_os07m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bstkd"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -57,28 +58,6 @@ stencil_outline_thickness = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_os07m"]
 
-[sub_resource type="PrismMesh" id="PrismMesh_phjbq"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0hpva"]
-render_priority = 1
-transparency = 1
-shading_mode = 0
-albedo_color = Color(0, 0, 0, 1)
-grow = true
-stencil_mode = 3
-stencil_flags = 1
-stencil_compare = 5
-metadata/_stencil_owned = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_piw0q"]
-next_pass = SubResource("StandardMaterial3D_0hpva")
-stencil_mode = 1
-stencil_flags = 2
-stencil_outline_thickness = 0.0
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vu8sw"]
-data = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
-
 [sub_resource type="SphereMesh" id="SphereMesh_bstkd"]
 
 [node name="TestRaycast" type="Node3D"]
@@ -121,16 +100,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_gmdbq")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Box2"]
 shape = SubResource("BoxShape3D_os07m")
 
-[node name="Prism" type="StaticBody3D" parent="."]
+[node name="Prism" parent="." instance=ExtResource("2_os07m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4354239, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Prism"]
-mesh = SubResource("PrismMesh_phjbq")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_piw0q")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Prism"]
-shape = SubResource("ConcavePolygonShape3D_vu8sw")
+[node name="Prism2" parent="." instance=ExtResource("2_os07m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3157055, 0, 0)
 
 [node name="TestSphere" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_bstkd")
