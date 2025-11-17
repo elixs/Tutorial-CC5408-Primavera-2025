@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://db4rg7lwlqfjn"]
+[gd_scene load_steps=37 format=3 uid="uid://db4rg7lwlqfjn"]
 
 [ext_resource type="Texture2D" uid="uid://ct0v1de0fm7dq" path="res://assets/sprites/AnimationSheet_Character.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://cbt8nmokqklby" path="res://scenes/player.gd" id="1_g2els"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://wr8fsi3fq32b" path="res://assets/sprites/light_cone_smooth.png" id="7_y4r1p"]
 [ext_resource type="Script" uid="uid://20esda0lshni" path="res://components/health_component.gd" id="8_smehm"]
 [ext_resource type="PackedScene" uid="uid://h3ptqebikjab" path="res://ui/hud.tscn" id="9_ur7pv"]
+[ext_resource type="Script" uid="uid://cfcr2mg4ldmlk" path="res://scripts/camera_with_shake_2d.gd" id="11_jej6c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
 radius = 6.0
@@ -402,10 +403,11 @@ metadata/_custom_type_script = "uid://bgrbb0xjerwx3"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CapsuleShape2D_tuyoq")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="CameraWithShake2D" type="Camera2D" parent="."]
 process_callback = 0
 limit_left = 0
 position_smoothing_enabled = true
+script = ExtResource("11_jej6c")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.2
@@ -431,5 +433,6 @@ metadata/_custom_type_script = "uid://20esda0lshni"
 [node name="HUD" parent="." instance=ExtResource("9_ur7pv")]
 
 [node name="Tail" type="Line2D" parent="."]
+visible = false
 points = PackedVector2Array(0, -1, -24, -27, 8, -52, 60, -56)
 width_curve = SubResource("Curve_3v2ag")

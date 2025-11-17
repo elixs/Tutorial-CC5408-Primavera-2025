@@ -22,6 +22,7 @@ Game="*res://autoloads/game.tscn"
 AudioManager="*res://autoloads/audio_manager.tscn"
 LevelManager="*res://autoloads/level_manager.tscn"
 InventoryManager="*res://autoloads/inventory_manager.tscn"
+TransitionManager="*res://autoloads/transition_manager.tscn"
 
 [display]
 

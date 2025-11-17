@@ -1,6 +1,8 @@
 class_name Hurtbox
 extends Area2D
 
+signal damage_received
+
 @export var health_component: HealthComponent
 
 func _ready() -> void:
@@ -13,6 +15,7 @@ func _on_area_entered(area: Area2D):
 		if health_component:
 			health_component.health -= hitbox.damage
 			hitbox.damage_dealt.emit()
+			damage_received.emit()
 		#if owner.has_method("take_damage"):
 			#owner.take_damage(hitbox.damage)
 		

@@ -29,6 +29,8 @@ var _flashlight_inst: RigidBody2D = null
 @onready var flashlight_sprite: Sprite2D = %FlashlightSprite
 @onready var flashlight_light: PointLight2D = $Pivot/FlashlightLight
 @onready var tail: Line2D = $Tail
+@onready var camera_with_shake_2d: CameraWithShake2D = $CameraWithShake2D
+@onready var hurtbox: Hurtbox = $Hurtbox
 
 
 func _ready() -> void:
@@ -37,6 +39,7 @@ func _ready() -> void:
 	blink_timer.timeout.connect(_on_blink_timer)
 	hud.setup(health_component)
 	init_tail()
+	hurtbox.damage_received.connect(func() -> void: camera_with_shake_2d.shake())
 
 
 func go_to_next_level():
@@ -58,6 +61,7 @@ func  _input(event: InputEvent) -> void:
 			_flashlight_inst.global_position = flashlight_sprite.global_position
 			_flashlight_inst.global_rotation = flashlight_sprite.global_rotation
 			_flashlight_inst.apply_impulse(Vector2(pivot.scale.x, 0) * 300)
+			camera_with_shake_2d.shake(10, 0.3)
 
 
 func _process(_delta: float) -> void:

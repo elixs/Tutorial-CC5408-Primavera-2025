@@ -7,4 +7,4 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D):
 	var player = body as Player
 	if player:
-		LevelManager.go_next_level()
+		TransitionManager.fade(LevelManager.go_next_level)
